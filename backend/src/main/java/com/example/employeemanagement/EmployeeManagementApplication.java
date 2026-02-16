@@ -22,8 +22,8 @@ import org.springframework.context.annotation.Bean;
         description = "API documentation for managing employees and departments",
         contact = @Contact(
             name = "Employee Management System",
-            email = "himanshu.singh.dev@gmail.com",
-            url = "https://github.com/33himanshu/Employee-Management-Fullstack-App"
+            email = "trivediabhay0512@gmail.com",
+            url = "https://github.com/abhaytrivedi05/Employee-Management-System"
         ),
         license = @License(
             name = "MIT License",
