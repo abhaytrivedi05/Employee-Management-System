@@ -39,7 +39,7 @@ public class DataInitializer implements CommandLineRunner {
 
     // Create fake departments
     List<Department> departments = new ArrayList<>();
-    for (int i = 1; i <= 50; i++) {
+    for (int i = 1; i <= 10; i++) {
       Department department = new Department();
       department.setName(faker.company().industry());
       departments.add(department);
@@ -53,7 +53,7 @@ public class DataInitializer implements CommandLineRunner {
       employee.setFirstName(faker.name().firstName());
       employee.setLastName(faker.name().lastName());
       employee.setEmail(faker.internet().emailAddress());
-      employee.setAge(random.nextInt(40) + 20); // Assign a random age between 20 and 60
+      employee.setAge(random.nextInt(40) + 20); 
 
       // Assign a random department to each employee
       employee.setDepartment(departments.get(random.nextInt(departments.size())));
