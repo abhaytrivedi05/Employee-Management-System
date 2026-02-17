@@ -48,7 +48,7 @@ public class DataInitializer implements CommandLineRunner {
 
     // Create fake employees with ages
     List<Employee> employees = new ArrayList<>();
-    for (int i = 1; i <= 295; i++) {
+    for (int i = 1; i <= 20; i++) {
       Employee employee = new Employee();
       employee.setFirstName(faker.name().firstName());
       employee.setLastName(faker.name().lastName());

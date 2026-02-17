@@ -1,0 +1,53 @@
+# Docker Compose for Azure SQL Database
+# Usage: docker-compose -f docker-compose.azure.yml up --build
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.azure
+    ports:
+      - "8081:8080"
+    environment:
+      # Azure SQL Configuration
+      - SPRING_PROFILES_ACTIVE=azure
+      - AZURE_SQL_URL=${AZURE_SQL_URL}
+      - AZURE_SQL_USERNAME=${AZURE_SQL_USERNAME}
+      - AZURE_SQL_PASSWORD=${AZURE_SQL_PASSWORD}
+      - DDL_AUTO=update
+      
+      # CORS for frontend
+      - CORS_ORIGINS=http://localhost:3000,http://frontend:80
+      
+      # Disable MongoDB for Azure setup
+      - MONGO_AUTO_CONFIG=org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration,org.springframework.boot.autoconfigure.data.mongo.MongoDataAutoConfiguration
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8080/actuator/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+    networks:
+      - app-network
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        - REACT_APP_API_URL=http://localhost:8081/api
+    ports:
+      - "3000:80"
+    environment:
+      - REACT_APP_API_URL=http://localhost:8081/api
+    depends_on:
+      backend:
+        condition: service_healthy
+    networks:
+      - app-network
+    restart: unless-stopped
+
+networks:
+  app-network:
+    driver: bridge
