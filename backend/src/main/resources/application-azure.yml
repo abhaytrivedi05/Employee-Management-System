@@ -1,0 +1,54 @@
+# Azure SQL Database Configuration
+# Usage: Set SPRING_PROFILES_ACTIVE=azure or run with --spring.profiles.active=azure
+
+spring:
+  datasource:
+    url: ${AZURE_SQL_URL}
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    username: ${AZURE_SQL_USERNAME}
+    password: ${AZURE_SQL_PASSWORD}
+    hikari:
+      maximum-pool-size: 5
+      minimum-idle: 2
+      connection-timeout: 60000
+      idle-timeout: 300000
+      max-lifetime: 900000
+      leak-detection-threshold: 60000
+      connection-test-query: SELECT 1
+      validation-timeout: 5000
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
+    database-platform: org.hibernate.dialect.SQLServer2012Dialect
+    generate-ddl: true
+    defer-datasource-initialization: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.SQLServer2012Dialect
+        # Azure SQL specific settings
+        hbm2ddl:
+          auto: create-drop
+
+  # Disable H2 console for Azure profile
+  h2:
+    console:
+      enabled: false
+
+  # SQL initialization settings - defer to allow Hibernate to create schema first
+  sql:
+    init:
+      mode: never
+      platform: sqlserver
+      data-locations:
+
+# Logging configuration
+logging:
+  level:
+    com.microsoft.sqlserver.jdbc: INFO
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
