@@ -4,7 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
+<<<<<<< HEAD
 import com.fasterxml.jackson.annotation.JsonIgnore;
+=======
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+>>>>>>> 2824bd05f5e0468b4a0aa0583fb5169e6434e350
 import java.util.List;
 
 /** This class represents a Department entity. Each department has an ID and a name. */
@@ -25,6 +29,10 @@ public class Department {
 
   /** The list of employees in the department. */
   @OneToMany(mappedBy = "department", cascade = CascadeType.ALL)
+<<<<<<< HEAD
   @JsonIgnore
+=======
+  @JsonManagedReference
+>>>>>>> 2824bd05f5e0468b4a0aa0583fb5169e6434e350
   private List<Employee> employees;
 }

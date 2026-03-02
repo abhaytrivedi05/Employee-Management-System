@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
+<<<<<<< HEAD
 import { motion } from 'framer-motion';
+=======
+>>>>>>> 2824bd05f5e0468b4a0aa0583fb5169e6434e350
 import {
   TextField,
   Button,
@@ -79,11 +82,14 @@ const Register = () => {
   };
 
   return (
+<<<<<<< HEAD
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
     >
+=======
+>>>>>>> 2824bd05f5e0468b4a0aa0583fb5169e6434e350
     <Box
       sx={{
         display: 'flex',
@@ -95,11 +101,14 @@ const Register = () => {
         borderRadius: 6,
       }}
     >
+<<<<<<< HEAD
       <motion.div
         initial={{ scale: 0.9, y: 30 }}
         animate={{ scale: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
+=======
+>>>>>>> 2824bd05f5e0468b4a0aa0583fb5169e6434e350
       <Card
         sx={{
           width: '100%',
@@ -240,9 +249,13 @@ const Register = () => {
           </Button>
         </DialogActions>
       </Dialog>
+<<<<<<< HEAD
       </motion.div>
     </Box>
     </motion.div>
+=======
+    </Box>
+>>>>>>> 2824bd05f5e0468b4a0aa0583fb5169e6434e350
   );
 };
 

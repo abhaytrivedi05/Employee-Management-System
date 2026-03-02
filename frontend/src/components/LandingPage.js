@@ -1,5 +1,8 @@
 import React from 'react';
+<<<<<<< HEAD
 import { motion } from 'framer-motion';
+=======
+>>>>>>> 2824bd05f5e0468b4a0aa0583fb5169e6434e350
 import {
   Box,
   Typography,
@@ -54,11 +57,14 @@ const LandingPage = () => {
   };
 
   return (
+<<<<<<< HEAD
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
     >
+=======
+>>>>>>> 2824bd05f5e0468b4a0aa0583fb5169e6434e350
     <Box
       sx={{
         minHeight: '100vh',
@@ -653,7 +659,10 @@ const LandingPage = () => {
         </Box>
       </Container>
     </Box>
+<<<<<<< HEAD
     </motion.div>
+=======
+>>>>>>> 2824bd05f5e0468b4a0aa0583fb5169e6434e350
   );
 };
 

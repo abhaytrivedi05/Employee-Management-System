@@ -2,9 +2,13 @@ package com.example.employeemanagement.controller;
 
 import com.example.employeemanagement.exception.ResourceNotFoundException;
 import com.example.employeemanagement.model.Employee;
+<<<<<<< HEAD
 import com.example.employeemanagement.model.Department;
 import com.example.employeemanagement.service.EmployeeService;
 import com.example.employeemanagement.service.DepartmentService;
+=======
+import com.example.employeemanagement.service.EmployeeService;
+>>>>>>> 2824bd05f5e0468b4a0aa0583fb5169e6434e350
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -25,9 +29,12 @@ public class EmployeeController {
   /** The employee service. */
   @Autowired private EmployeeService employeeService;
 
+<<<<<<< HEAD
   /** The department service. */
   @Autowired private DepartmentService departmentService;
 
+=======
+>>>>>>> 2824bd05f5e0468b4a0aa0583fb5169e6434e350
   /**
    * Get all employees API.
    *
@@ -71,6 +78,7 @@ public class EmployeeController {
   @Operation(summary = "Create a new employee", description = "Create a new employee record")
   @PostMapping
   public Employee createEmployee(@RequestBody Employee employee) {
+<<<<<<< HEAD
     // Fetch and set the department if department ID is provided
     if (employee.getDepartment() != null && employee.getDepartment().getId() != null) {
       Department department = 
@@ -79,6 +87,8 @@ public class EmployeeController {
                   "Department not found with id: " + employee.getDepartment().getId()));
       employee.setDepartment(department);
     }
+=======
+>>>>>>> 2824bd05f5e0468b4a0aa0583fb5169e6434e350
     return employeeService.saveEmployee(employee);
   }
 
@@ -108,6 +118,7 @@ public class EmployeeController {
     employee.setFirstName(employeeDetails.getFirstName());
     employee.setLastName(employeeDetails.getLastName());
     employee.setEmail(employeeDetails.getEmail());
+<<<<<<< HEAD
     employee.setAge(employeeDetails.getAge());
     
     // Fetch and set the department if department ID is provided
@@ -118,6 +129,10 @@ public class EmployeeController {
                   "Department not found with id: " + employeeDetails.getDepartment().getId()));
       employee.setDepartment(department);
     }
+=======
+    employee.setDepartment(employeeDetails.getDepartment());
+    employee.setAge(employeeDetails.getAge());
+>>>>>>> 2824bd05f5e0468b4a0aa0583fb5169e6434e350
 
     Employee updatedEmployee = employeeService.saveEmployee(employee);
     return ResponseEntity.ok(updatedEmployee);

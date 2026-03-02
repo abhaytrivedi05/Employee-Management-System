@@ -28,8 +28,4 @@ COPY --from=builder /app/target/employee-management-app-0.0.1-SNAPSHOT.jar app.j
 EXPOSE 8080
 
 # Run with Azure SQL profile
-<<<<<<< HEAD
 ENTRYPOINT ["java", "-jar", "app.jar", "--spring.profiles.active=azure"]
-=======
-ENTRYPOINT ["java", "-jar", "app.jar", "--spring.profiles.active=azure"]
->>>>>>> 2824bd05f5e0468b4a0aa0583fb5169e6434e350

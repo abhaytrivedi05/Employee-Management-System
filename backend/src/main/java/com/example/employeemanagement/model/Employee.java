@@ -3,6 +3,10 @@ package com.example.employeemanagement.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+<<<<<<< HEAD
+=======
+import com.fasterxml.jackson.annotation.JsonBackReference;
+>>>>>>> 2824bd05f5e0468b4a0aa0583fb5169e6434e350
 import javax.persistence.*;
 
 /**
@@ -33,6 +37,10 @@ public class Employee {
   /** The department of the employee. */
   @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "department_id", nullable = false)
+<<<<<<< HEAD
+=======
+  @JsonBackReference
+>>>>>>> 2824bd05f5e0468b4a0aa0583fb5169e6434e350
   private Department department;
 
   /** The age of the employee. */

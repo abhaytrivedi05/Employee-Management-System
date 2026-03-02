@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+<<<<<<< HEAD
 import { motion } from 'framer-motion';
 import { addDepartment, getDepartmentById, updateDepartment } from '../services/departmentService';
 import { TextField, Button, CircularProgress, Box, Paper, Typography, Stack } from '@mui/material';
+=======
+import { addDepartment, getDepartmentById, updateDepartment } from '../services/departmentService';
+import { TextField, Button, CircularProgress, Box } from '@mui/material';
+>>>>>>> 2824bd05f5e0468b4a0aa0583fb5169e6434e350
 
 const DepartmentForm = () => {
   const [department, setDepartment] = useState({ name: '' });
@@ -65,6 +70,7 @@ const DepartmentForm = () => {
   }
 
   return (
+<<<<<<< HEAD
     <motion.div
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
@@ -97,6 +103,15 @@ const DepartmentForm = () => {
         </Paper>
       </Box>
     </motion.div>
+=======
+    <Box component="form" onSubmit={handleSubmit} sx={{ '& .MuiTextField-root': { marginBottom: '1rem', width: '100%' }, maxWidth: '400px', margin: '0 auto' }}>
+      <h2>{id ? 'Edit Department' : 'Add Department'}</h2>
+      <TextField label="Department Name" name="name" value={department.name} onChange={handleChange} required fullWidth />
+      <Button type="submit" variant="contained" color="primary" sx={{ marginTop: '1rem' }}>
+        Save
+      </Button>
+    </Box>
+>>>>>>> 2824bd05f5e0468b4a0aa0583fb5169e6434e350
   );
 };
 

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState, useEffect, useContext } from 'react';
 import { motion } from 'framer-motion';
 import { AppBar, Toolbar, Typography, Button, Box, IconButton, Drawer, List, ListItem, ListItemText, Tooltip } from '@mui/material';
@@ -7,6 +8,13 @@ import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { ThemeContext } from '../contexts/ThemeContext';
+=======
+import React, { useState, useEffect } from 'react';
+import { AppBar, Toolbar, Typography, Button, Box, IconButton, Drawer, List, ListItem, ListItemText } from '@mui/material';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import MenuIcon from '@mui/icons-material/Menu';
+import useMediaQuery from '@mui/material/useMediaQuery';
+>>>>>>> 2824bd05f5e0468b4a0aa0583fb5169e6434e350
 
 const Navbar = () => {
   const location = useLocation();
@@ -14,7 +22,10 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+<<<<<<< HEAD
   const { mode, toggleTheme } = useContext(ThemeContext);
+=======
+>>>>>>> 2824bd05f5e0468b4a0aa0583fb5169e6434e350
 
   // Check if screen width is below 1000px
   const isMobile = useMediaQuery('(max-width:1000px)');
@@ -78,11 +89,14 @@ const Navbar = () => {
 
   return (
     <>
+<<<<<<< HEAD
       <motion.div
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, ease: 'easeOut' }}
       >
+=======
+>>>>>>> 2824bd05f5e0468b4a0aa0583fb5169e6434e350
       <AppBar
         position="static"
         sx={{
@@ -110,6 +124,7 @@ const Navbar = () => {
 
           {/* Render drawer icon for mobile view */}
           {isMobile ? (
+<<<<<<< HEAD
             <Box sx={{ display: 'flex', gap: 1 }}>
               <Tooltip title={mode === 'dark' ? 'Light mode' : 'Dark mode'}>
                 <IconButton color="inherit" onClick={toggleTheme}>
@@ -120,6 +135,11 @@ const Navbar = () => {
                 <MenuIcon />
               </IconButton>
             </Box>
+=======
+            <IconButton color="inherit" edge="start" onClick={handleDrawerToggle}>
+              <MenuIcon />
+            </IconButton>
+>>>>>>> 2824bd05f5e0468b4a0aa0583fb5169e6434e350
           ) : (
             // Render full menu for desktop view
             <Box sx={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
@@ -221,16 +241,22 @@ const Navbar = () => {
               >
                 Register
               </Button>
+<<<<<<< HEAD
               <Tooltip title={mode === 'dark' ? 'Light mode' : 'Dark mode'}>
                 <IconButton color="inherit" onClick={toggleTheme} sx={{ ml: 1 }}>
                   {mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
                 </IconButton>
               </Tooltip>
+=======
+>>>>>>> 2824bd05f5e0468b4a0aa0583fb5169e6434e350
             </Box>
           )}
         </Toolbar>
       </AppBar>
+<<<<<<< HEAD
       </motion.div>
+=======
+>>>>>>> 2824bd05f5e0468b4a0aa0583fb5169e6434e350
 
       {/* Drawer for mobile view */}
       <Drawer anchor="left" open={drawerOpen} onClose={handleDrawerToggle}>

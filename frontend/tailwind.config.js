@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+<<<<<<< HEAD
   darkMode: ["class"],
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
@@ -10,10 +11,15 @@ module.exports = {
         "2xl": "1400px",
       },
     },
+=======
+  content: ['./src/**/*.{js,jsx,ts,tsx}'],
+  theme: {
+>>>>>>> 2824bd05f5e0468b4a0aa0583fb5169e6434e350
     extend: {
       fontFamily: {
         poppins: ['Poppins', 'sans-serif'],
       },
+<<<<<<< HEAD
       colors: {
         border: "hsl(214.3 31.8% 91.4%)",
         input: "hsl(214.3 31.8% 91.4%)",
@@ -54,6 +60,8 @@ module.exports = {
         md: "calc(0.5rem - 2px)",
         sm: "calc(0.5rem - 4px)",
       },
+=======
+>>>>>>> 2824bd05f5e0468b4a0aa0583fb5169e6434e350
     },
   },
   plugins: [],

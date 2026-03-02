@@ -50,4 +50,8 @@ services:
 
 networks:
   app-network:
+<<<<<<< HEAD
     driver: bridge
+=======
+    driver: bridge
+>>>>>>> 2824bd05f5e0468b4a0aa0583fb5169e6434e350

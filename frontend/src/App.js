@@ -1,7 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+<<<<<<< HEAD
 import { Container, CssBaseline } from '@mui/material';
 import { ThemeProvider } from './contexts/ThemeContext';
+=======
+import { Container, CssBaseline, ThemeProvider } from '@mui/material';
+import theme from './theme';
+>>>>>>> 2824bd05f5e0468b4a0aa0583fb5169e6434e350
 import Dashboard from './components/Dashboard';
 import EmployeeList from './components/EmployeeList';
 import EmployeeForm from './components/EmployeeForm';
@@ -21,7 +26,11 @@ import QuickActions from './components/QuickActions';
 
 const App = () => {
   return (
+<<<<<<< HEAD
     <ThemeProvider>
+=======
+    <ThemeProvider theme={theme}>
+>>>>>>> 2824bd05f5e0468b4a0aa0583fb5169e6434e350
       <CssBaseline />
       <Router>
         <Navbar />

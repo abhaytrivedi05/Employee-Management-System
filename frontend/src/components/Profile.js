@@ -195,7 +195,10 @@ const Profile = () => {
                     sx={{ maxWidth: '100%', '& .MuiChip-label': { overflow: 'hidden', textOverflow: 'ellipsis', maxWidth: 240 } }}
                   />
                 </Tooltip>
+<<<<<<< HEAD
                 <Chip label="Admin Access" color="secondary" variant="outlined" />
+=======
+>>>>>>> 2824bd05f5e0468b4a0aa0583fb5169e6434e350
                 <Divider flexItem sx={{ my: 1 }} />
                 <Button fullWidth variant="contained" startIcon={<LogoutIcon />} color="secondary" onClick={handleLogout}>
                   Logout

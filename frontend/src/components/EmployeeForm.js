@@ -1,9 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+<<<<<<< HEAD
 import { motion } from 'framer-motion';
 import { addEmployee, getEmployeeById, updateEmployee } from '../services/employeeService';
 import { getAllDepartments } from '../services/departmentService';
 import { TextField, Button, MenuItem, Box, CircularProgress, Paper, Typography, Stack } from '@mui/material';
+=======
+import { addEmployee, getEmployeeById, updateEmployee } from '../services/employeeService';
+import { getAllDepartments } from '../services/departmentService';
+import { TextField, Button, MenuItem, Box, CircularProgress } from '@mui/material';
+>>>>>>> 2824bd05f5e0468b4a0aa0583fb5169e6434e350
 import { styled } from '@mui/system';
 
 const CenteredSpinner = styled('div')({
@@ -30,6 +36,7 @@ const EmployeeForm = () => {
     const fetchData = async () => {
       setIsLoading(true);
       try {
+<<<<<<< HEAD
         console.log('Fetching departments...');
         const departmentsData = await getAllDepartments();
         console.log('Departments fetched:', departmentsData);
@@ -39,6 +46,13 @@ const EmployeeForm = () => {
           console.log('Fetching employee with id:', id);
           const employeeData = await getEmployeeById(id);
           console.log('Employee fetched:', employeeData);
+=======
+        const departmentsData = await getAllDepartments();
+        setDepartments(departmentsData);
+
+        if (id) {
+          const employeeData = await getEmployeeById(id);
+>>>>>>> 2824bd05f5e0468b4a0aa0583fb5169e6434e350
           if (employeeData) {
             setEmployee({
               firstName: employeeData.firstName || '',
@@ -54,7 +68,10 @@ const EmployeeForm = () => {
         setIsLoading(false);
       } catch (error) {
         console.error('Error fetching data:', error);
+<<<<<<< HEAD
         console.error('Error details:', error.response?.data || error.message);
+=======
+>>>>>>> 2824bd05f5e0468b4a0aa0583fb5169e6434e350
         setIsLoading(false);
       }
     };
@@ -99,6 +116,7 @@ const EmployeeForm = () => {
   }
 
   return (
+<<<<<<< HEAD
     <motion.div
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
@@ -154,6 +172,26 @@ const EmployeeForm = () => {
         </Paper>
       </Box>
     </motion.div>
+=======
+    <Box component="form" onSubmit={handleSubmit} sx={{ '& .MuiTextField-root': { marginBottom: '1rem', width: '100%' } }}>
+      <h2>{id ? 'Edit Employee' : 'Add Employee'}</h2>
+      <TextField label="First Name" name="firstName" value={employee.firstName} onChange={handleChange} required />
+      <TextField label="Last Name" name="lastName" value={employee.lastName} onChange={handleChange} required />
+      <TextField label="Email" name="email" type="email" value={employee.email} onChange={handleChange} required />
+      <TextField label="Age" name="age" type="number" value={employee.age} onChange={handleChange} required inputProps={{ min: 1, max: 150 }} />
+      <TextField select label="Department" name="department.id" value={employee.department.id || ''} onChange={handleChange} required>
+        <MenuItem value="">Select Department</MenuItem>
+        {departments.map(department => (
+          <MenuItem key={department.id} value={department.id}>
+            {department.name}
+          </MenuItem>
+        ))}
+      </TextField>
+      <Button type="submit" variant="contained" color="primary" sx={{ marginTop: '1rem' }}>
+        Save
+      </Button>
+    </Box>
+>>>>>>> 2824bd05f5e0468b4a0aa0583fb5169e6434e350
   );
 };
 

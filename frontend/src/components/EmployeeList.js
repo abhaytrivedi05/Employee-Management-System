@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+<<<<<<< HEAD
 import { motion } from 'framer-motion';
 import { getAllEmployees, deleteEmployee } from '../services/employeeService';
 import { getAllDepartments } from '../services/departmentService';
 import { useThemeColors } from '../hooks/useThemeColors';
+=======
+import { getAllEmployees, deleteEmployee } from '../services/employeeService';
+import { getAllDepartments } from '../services/departmentService';
+>>>>>>> 2824bd05f5e0468b4a0aa0583fb5169e6434e350
 import {
   Table,
   TableBody,
@@ -37,7 +42,10 @@ import EmailIcon from '@mui/icons-material/Email';
 
 const EmployeeList = () => {
   const navigate = useNavigate();
+<<<<<<< HEAD
   const { gradientBlue, gradientOrange, gradientGreen, gradientPurple } = useThemeColors();
+=======
+>>>>>>> 2824bd05f5e0468b4a0aa0583fb5169e6434e350
   const [employees, setEmployees] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [page, setPage] = useState(0);
@@ -208,11 +216,14 @@ const EmployeeList = () => {
   };
 
   return (
+<<<<<<< HEAD
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
+=======
+>>>>>>> 2824bd05f5e0468b4a0aa0583fb5169e6434e350
     <Box>
       <Snackbar open={showSnackbar} onClose={handleCloseSnackbar} anchorOrigin={{ vertical: 'top', horizontal: 'center' }} sx={{ mt: 9 }}>
         <Alert onClose={handleCloseSnackbar} severity="warning" sx={{ width: '100%' }}>
@@ -264,7 +275,11 @@ const EmployeeList = () => {
             sx={{
               padding: 2,
               borderRadius: 3,
+<<<<<<< HEAD
               background: gradientBlue,
+=======
+              background: 'linear-gradient(135deg, #e0e7ff 0%, #f5f7ff 100%)',
+>>>>>>> 2824bd05f5e0468b4a0aa0583fb5169e6434e350
               boxShadow: '0 12px 35px rgba(15, 23, 42, 0.12)',
             }}
           >
@@ -284,7 +299,11 @@ const EmployeeList = () => {
             sx={{
               padding: 2,
               borderRadius: 3,
+<<<<<<< HEAD
               background: gradientOrange,
+=======
+              background: 'linear-gradient(135deg, #fdf2e9 0%, #ffe7d4 100%)',
+>>>>>>> 2824bd05f5e0468b4a0aa0583fb5169e6434e350
               boxShadow: '0 12px 35px rgba(15, 23, 42, 0.12)',
             }}
           >
@@ -304,7 +323,11 @@ const EmployeeList = () => {
             sx={{
               padding: 2,
               borderRadius: 3,
+<<<<<<< HEAD
               background: gradientGreen,
+=======
+              background: 'linear-gradient(135deg, #ecfdf3 0%, #dcfce7 100%)',
+>>>>>>> 2824bd05f5e0468b4a0aa0583fb5169e6434e350
               boxShadow: '0 12px 35px rgba(15, 23, 42, 0.12)',
             }}
           >
@@ -324,7 +347,11 @@ const EmployeeList = () => {
             sx={{
               padding: 2,
               borderRadius: 3,
+<<<<<<< HEAD
               background: gradientPurple,
+=======
+              background: 'linear-gradient(135deg, #e9defa 0%, #fbfcdb 100%)',
+>>>>>>> 2824bd05f5e0468b4a0aa0583fb5169e6434e350
               boxShadow: '0 12px 35px rgba(15, 23, 42, 0.12)',
             }}
           >
@@ -558,7 +585,10 @@ const EmployeeList = () => {
         onRowsPerPageChange={handleChangeRowsPerPage}
       />
     </Box>
+<<<<<<< HEAD
     </motion.div>
+=======
+>>>>>>> 2824bd05f5e0468b4a0aa0583fb5169e6434e350
   );
 };
 
