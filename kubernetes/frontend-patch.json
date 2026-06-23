@@ -1,0 +1,1 @@
+[{"op":"replace","path":"/spec/template/spec/securityContext","value":{"runAsUser":0}}]

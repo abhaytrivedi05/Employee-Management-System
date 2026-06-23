@@ -1,0 +1,51 @@
+# Docker Compose for Sharing - Uses Pre-built Images
+# Recipients only need this file and Docker Desktop
+# Usage: docker-compose -f docker-compose.share.yml up
+
+services:
+  backend:
+    image: employeemanagement/backend:latest
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.standalone
+    ports:
+      - "8081:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=azure
+      - AZURE_SQL_URL=jdbc:sqlserver://sql-server-abhay.database.windows.net:1433;database=cemsdb;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
+      - AZURE_SQL_USERNAME=cemsadmin@sql-server-abhay
+      - AZURE_SQL_PASSWORD=Abhayhumain@123
+      - DDL_AUTO=update
+      - CORS_ORIGINS=http://localhost:3000,http://frontend:80
+      - MONGO_AUTO_CONFIG=org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration,org.springframework.boot.autoconfigure.data.mongo.MongoDataAutoConfiguration
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8080/actuator/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+    networks:
+      - app-network
+    restart: unless-stopped
+
+  frontend:
+    image: employeemanagement/frontend:latest
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.standalone
+      args:
+        - REACT_APP_API_URL=http://localhost:8081/api
+    ports:
+      - "3000:80"
+    environment:
+      - REACT_APP_API_URL=http://localhost:8081/api
+    depends_on:
+      backend:
+        condition: service_healthy
+    networks:
+      - app-network
+    restart: unless-stopped
+
+networks:
+  app-network:
+    driver: bridge

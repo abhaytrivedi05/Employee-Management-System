@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-config
+  labels:
+    app: backend
+    environment: production
+data:
+  # Spring Boot settings
+  SPRING_PROFILES_ACTIVE: "prod"
+  DDL_AUTO: "update"
+  DB_DRIVER: "org.postgresql.Driver"
+  JPA_DIALECT: "org.hibernate.dialect.PostgreSQLDialect"
+  # Supabase transaction pooler requires server-side prepared statements disabled
+  SPRING_JPA_PROPERTIES_HIBERNATE_JDBC_USE_SCROLLABLE_RESULTSET: "false"
+  SPRING_DATASOURCE_HIKARI_CONNECTION_INIT_SQL: "SET search_path=public"
+  # Disable MongoDB auto-config (not used)
+  MONGO_AUTO_CONFIG: "org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration,org.springframework.boot.autoconfigure.data.mongo.MongoDataAutoConfiguration"
+  # CORS — update to your actual frontend domain once the LoadBalancer URL is known
+  CORS_ORIGINS: "*"
+  # Actuator
+  MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE: "health,info"
+  MANAGEMENT_ENDPOINT_HEALTH_SHOW_DETAILS: "always"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: frontend-config
+  labels:
+    app: frontend
+    environment: production
+data:
+  # Supabase env vars are baked into the React build image at docker build time.
+  # This configmap is kept for any runtime nginx config overrides if needed.
+  BACKEND_URL: "http://backend-service:8080"
